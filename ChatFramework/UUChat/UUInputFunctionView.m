@@ -74,6 +74,20 @@
         self.TextViewInput.layer.borderColor = [[[UIColor lightGrayColor] colorWithAlphaComponent:0.4] CGColor];
         [self addSubview:self.TextViewInput];
         
+        UIToolbar* keyboardNewlineButtonView = [[UIToolbar alloc] init];
+        keyboardNewlineButtonView.barStyle = UIBarStyleBlack;
+        keyboardNewlineButtonView.translucent = YES;
+        keyboardNewlineButtonView.tintColor = nil;
+        [keyboardNewlineButtonView sizeToFit];
+        // toolbar上的2个按钮
+        UIBarButtonItem *SpaceButton=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                                   target:nil  action:nil]; // 让完成按钮显示在右侧
+        UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"⏎"
+                                                                       style:UIBarButtonItemStylePlain target:self
+                                                                      action:@selector(pickerNewlineClicked)];
+        [keyboardNewlineButtonView setItems:[NSArray arrayWithObjects:SpaceButton, doneButton, nil]];
+        self.TextViewInput.inputAccessoryView = keyboardNewlineButtonView;
+        
         //输入框的提示语
         placeHold = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, 200, 30)];
         placeHold.text = @"Input the contents here";
@@ -199,6 +213,20 @@
 
 
 #pragma mark - TextViewDelegate
+// 3、键盘上方附加的完成按钮触发函数
+-(void)pickerNewlineClicked
+{
+    self.TextViewInput.text = [self.TextViewInput.text stringByAppendingString:@"\n"];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"]){ //判断输入的字是否是回车，即按下return
+        [self sendMessage:nil];
+        return NO; //这里返回NO，就代表return键值失效，即页面上按下return，不会出现换行，如果为yes，则输入页面会换行
+    }
+    return YES;
+}
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
