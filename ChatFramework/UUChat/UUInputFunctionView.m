@@ -72,21 +72,8 @@
         self.TextViewInput.delegate = self;
         self.TextViewInput.layer.borderWidth = 1;
         self.TextViewInput.layer.borderColor = [[[UIColor lightGrayColor] colorWithAlphaComponent:0.4] CGColor];
+        self.TextViewInput.returnKeyType = UIReturnKeySend;
         [self addSubview:self.TextViewInput];
-        
-        UIToolbar* keyboardNewlineButtonView = [[UIToolbar alloc] init];
-        keyboardNewlineButtonView.barStyle = UIBarStyleBlack;
-        keyboardNewlineButtonView.translucent = YES;
-        keyboardNewlineButtonView.tintColor = nil;
-        [keyboardNewlineButtonView sizeToFit];
-        // toolbar上的2个按钮
-        UIBarButtonItem *SpaceButton=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                                                                   target:nil  action:nil]; // 让完成按钮显示在右侧
-        UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"⏎"
-                                                                       style:UIBarButtonItemStylePlain target:self
-                                                                      action:@selector(pickerNewlineClicked)];
-        [keyboardNewlineButtonView setItems:[NSArray arrayWithObjects:SpaceButton, doneButton, nil]];
-        self.TextViewInput.inputAccessoryView = keyboardNewlineButtonView;
         
         //输入框的提示语
         placeHold = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, 200, 30)];
