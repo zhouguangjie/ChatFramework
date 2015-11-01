@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ACMacros.h"
 
 @interface UUProgressHUD : UIView
 

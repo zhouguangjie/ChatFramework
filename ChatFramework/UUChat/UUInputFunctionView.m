@@ -56,8 +56,8 @@
         [self.btnVoiceRecord setBackgroundImage:[UIImage imageNamed:@"chat_message_back"] forState:UIControlStateNormal];
         [self.btnVoiceRecord setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [self.btnVoiceRecord setTitleColor:[[UIColor lightGrayColor] colorWithAlphaComponent:0.5] forState:UIControlStateHighlighted];
-        [self.btnVoiceRecord setTitle:@"Hold to Talk" forState:UIControlStateNormal];
-        [self.btnVoiceRecord setTitle:@"Release to Send" forState:UIControlStateHighlighted];
+        [self.btnVoiceRecord setTitle:LocalString(@"HOLD_TO_TALK", @"Hold to Talk") forState:UIControlStateNormal];
+        [self.btnVoiceRecord setTitle:LocalString(@"RELEASE_TO_SEND", @"Release to Send") forState:UIControlStateHighlighted];
         [self.btnVoiceRecord addTarget:self action:@selector(beginRecordVoice:) forControlEvents:UIControlEventTouchDown];
         [self.btnVoiceRecord addTarget:self action:@selector(endRecordVoice:) forControlEvents:UIControlEventTouchUpInside];
         [self.btnVoiceRecord addTarget:self action:@selector(cancelRecordVoice:) forControlEvents:UIControlEventTouchUpOutside | UIControlEventTouchCancel];
@@ -77,7 +77,7 @@
         
         //输入框的提示语
         placeHold = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, 200, 30)];
-        placeHold.text = @"Input the contents here";
+        placeHold.text = LocalString(@"INPUT_CONTENTS_HERE", @"Input the contents here");
         placeHold.textColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.8];
         [self.TextViewInput addSubview:placeHold];
         
@@ -121,17 +121,17 @@
         [playTimer invalidate];
         playTimer = nil;
     }
-    [UUProgressHUD dismissWithError:@"Cancel"];
+    [UUProgressHUD dismissWithError:LocalString(@"CANCEL", @"Cancel")];
 }
 
 - (void)RemindDragExit:(UIButton *)button
 {
-    [UUProgressHUD changeSubTitle:@"Release to cancel"];
+    [UUProgressHUD changeSubTitle:LocalString(@"RELEASE_TO_CANCEL",@"Release to cancel")];
 }
 
 - (void)RemindDragEnter:(UIButton *)button
 {
-    [UUProgressHUD changeSubTitle:@"Slide up to cancel"];
+    [UUProgressHUD changeSubTitle:LocalString(@"SLIDE_UP_CANCEL",@"Slide up to cancel")];
 }
 
 
@@ -149,7 +149,7 @@
 - (void)endConvertWithData:(NSData *)voiceData
 {
     [self.delegate UUInputFunctionViewSend:self sendVoice:voiceData time:playTime+1];
-    [UUProgressHUD dismissWithSuccess:@"Success"];
+    [UUProgressHUD dismissWithSuccess:LocalString(@"SUCCESS",@"Success")];
    
     //缓冲消失时间 (最好有block回调消失完成)
     self.btnVoiceRecord.enabled = NO;
@@ -160,8 +160,7 @@
 
 - (void)failRecord
 {
-    [UUProgressHUD dismissWithSuccess:@"Too short"];
-    
+    [UUProgressHUD dismissWithSuccess:LocalString(@"TOO_SHORT",@"Too short")];
     //缓冲消失时间 (最好有block回调消失完成)
     self.btnVoiceRecord.enabled = NO;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -193,7 +192,7 @@
     }
     else{
         [self.TextViewInput resignFirstResponder];
-        UIActionSheet *actionSheet= [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera",@"Images",nil];
+        UIActionSheet *actionSheet= [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:LocalString(@"CANCEL", @"Cancel") destructiveButtonTitle:nil otherButtonTitles:LocalString(@"CAMERA", @"Camera"),LocalString(@"IMAGES", @"Images"),nil];
         [actionSheet showInView:self.window];
     }
 }
@@ -229,7 +228,7 @@
 - (void)changeSendBtnWithPhoto:(BOOL)isPhoto
 {
     self.isAbleToSendTextMessage = !isPhoto;
-    [self.btnSendMessage setTitle:isPhoto?@"":@"send" forState:UIControlStateNormal];
+    [self.btnSendMessage setTitle:isPhoto?@"":LocalString(@"SEND", @"send") forState:UIControlStateNormal];
     self.btnSendMessage.frame = RECT_CHANGE_width(self.btnSendMessage, isPhoto?30:35);
     UIImage *image = [UIImage imageNamed:isPhoto?@"Chat_take_picture":@"chat_send_message"];
     [self.btnSendMessage setBackgroundImage:image forState:UIControlStateNormal];
@@ -260,7 +259,7 @@
         [self.superVC presentViewController:picker animated:YES completion:^{}];
     }else{
         //如果没有提示用户
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tip" message:@"Your device don't have camera" delegate:nil cancelButtonTitle:@"Sure" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LocalString(@"TIPS", @"Tip") message:LocalString(@"NO_CAMERA_TIPS", @"Your device don't have camera" )delegate:nil cancelButtonTitle:LocalString(@"SURE", @"Sure") otherButtonTitles:nil];
         [alert show];
     }
 }
