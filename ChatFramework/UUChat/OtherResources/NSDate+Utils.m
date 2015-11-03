@@ -7,6 +7,7 @@
 //
 
 #import "NSDate+Utils.h"
+#import "ACMacros.h"
 
 #define DATE_COMPONENTS (NSCalendarUnitYear| NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekOfMonth |  NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitWeekday | NSCalendarUnitWeekOfYear)
 #define CURRENT_CALENDAR [NSCalendar currentCalendar]
@@ -114,25 +115,25 @@
     NSString *week = @"";
     switch (weekday) {
         case 1:
-            week = @"星期日";
+            week = @"Sunday";
             break;
         case 2:
-            week = @"星期一";
+            week = @"Monday";
             break;
         case 3:
-            week = @"星期二";
+            week = @"Tuesday";
             break;
         case 4:
-            week = @"星期三";
+            week = @"Wednesday";
             break;
         case 5:
-            week = @"星期四";
+            week = @"Thursday";
             break;
         case 6:
-            week = @"星期五";
+            week = @"Friday";
             break;
         case 7:
-            week = @"星期六";
+            week = @"Saturday";
             break;
             
         default:
@@ -168,10 +169,10 @@
     [formatter setDateFormat:@"HH:mm"];
     NSString *timeStr = [formatter stringFromDate:self];
     if (enablePrefix) {
-        timeStr = [NSString stringWithFormat:@"%@%@",([self hour] > 12 ? @"下午" : @"上午"),timeStr];
+        timeStr = [NSString stringWithFormat:@"%@%@",([self hour] > 12 ? LocalString(@"PM") : LocalString(@"AM")),timeStr];
     }
     if (enableSuffix) {
-        timeStr = [NSString stringWithFormat:@"%@%@",([self hour] > 12 ? @"pm" : @"am"),timeStr];
+        timeStr = [NSString stringWithFormat:@"%@%@",([self hour] > 12 ? LocalString(@"PM") : LocalString(@"AM")),timeStr];
     }
     return timeStr;
 }
@@ -210,11 +211,11 @@
     NSString *str;
     NSInteger chaDay = [self daysBetweenCurrentDateAndDate];
     if (chaDay == 0) {
-        str = @"Today";
+        str = LocalString(@"Today");
     }else if (chaDay == 1){
-        str = @"Tomorrow";
+        str = LocalString(@"Tomorrow");
     }else if (chaDay == -1){
-        str = @"Yesterday";
+        str = LocalString(@"Yesterday");
     }else{
         str = [self stringYearMonthDay];
     }

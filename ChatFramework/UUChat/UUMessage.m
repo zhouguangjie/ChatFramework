@@ -8,6 +8,7 @@
 
 #import "UUMessage.h"
 #import "NSDate+Utils.h"
+#import "ACMacros.h"
 
 @implementation UUMessage
 - (void)setWithDict:(NSDictionary *)dict{
@@ -68,16 +69,16 @@
     
     
     if ([lastDate hour]>=5 && [lastDate hour]<12) {
-        period = @"AM";
+        period = LocalString(@"AM");
         hour = [NSString stringWithFormat:@"%02d",(int)[lastDate hour]];
     }else if ([lastDate hour]>=12 && [lastDate hour]<=18){
-        period = @"PM";
+        period = LocalString(@"PM");
         hour = [NSString stringWithFormat:@"%02d",(int)[lastDate hour]-12];
     }else if ([lastDate hour]>18 && [lastDate hour]<=23){
-        period = @"Night";
+        period = LocalString(@"Night");
         hour = [NSString stringWithFormat:@"%02d",(int)[lastDate hour]-12];
     }else{
-        period = @"Dawn";
+        period = LocalString(@"Dawn");
         hour = [NSString stringWithFormat:@"%02d",(int)[lastDate hour]];
     }
     return [NSString stringWithFormat:@"%@ %@ %@:%02d",dateStr,period,hour,(int)[lastDate minute]];
