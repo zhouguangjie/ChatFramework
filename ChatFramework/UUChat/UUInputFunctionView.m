@@ -254,7 +254,7 @@
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.delegate = self;
-        picker.allowsEditing = YES;
+        picker.allowsEditing = NO;
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self.superVC presentViewController:picker animated:YES completion:^{}];
     }else{
@@ -268,7 +268,7 @@
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.delegate = self;
-        picker.allowsEditing = YES;
+        picker.allowsEditing = NO;
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         [self.superVC presentViewController:picker animated:YES completion:^{
         }];
@@ -277,7 +277,7 @@
 
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-    UIImage *editImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    UIImage *editImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     [self.superVC dismissViewControllerAnimated:YES completion:^{
         [self.delegate UUInputFunctionViewSend:self sendPicture:editImage];
     }];
