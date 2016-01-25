@@ -58,7 +58,7 @@
             self.titleLabel.backgroundColor = [UIColor clearColor];
         }
         if (!edgeImageView)
-            edgeImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Chat_record_circle" inBundle:[NSBundle bundleWithIdentifier:@"ChatAssets"] compatibleWithTraitCollection:nil]];
+            edgeImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Chat_record_circle"]];
         
         self.subTitleLabel.center = CGPointMake([[UIScreen mainScreen] bounds].size.width/2,[[UIScreen mainScreen] bounds].size.height/2 + 30);
         self.subTitleLabel.text = NSLocalizedStringFromTable(@"SLIDE_UP_CANCEL", @"ChatFrameworkLocalized",nil);

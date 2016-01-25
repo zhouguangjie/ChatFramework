@@ -29,11 +29,11 @@
         self.second.textAlignment = NSTextAlignmentCenter;
         self.second.font = [UIFont systemFontOfSize:14];
         self.voice = [[UIImageView alloc]initWithFrame:CGRectMake(80, 5, 20, 20)];
-        self.voice.image = [UIImage imageNamed:@"chat_animation_white3" inBundle:[NSBundle bundleWithIdentifier:@"ChatAssets"] compatibleWithTraitCollection:nil];
+        self.voice.image = [UIImage imageNamed:@"chat_animation_white3"];
         self.voice.animationImages = [NSArray arrayWithObjects:
-                                      [UIImage imageNamed:@"chat_animation_white1"  inBundle:[NSBundle bundleWithIdentifier:@"ChatAssets"] compatibleWithTraitCollection:nil],
-                                      [UIImage imageNamed:@"chat_animation_white2"  inBundle:[NSBundle bundleWithIdentifier:@"ChatAssets"] compatibleWithTraitCollection:nil],
-                                      [UIImage imageNamed:@"chat_animation_white3"  inBundle:[NSBundle bundleWithIdentifier:@"ChatAssets"] compatibleWithTraitCollection:nil],nil];
+                                      [UIImage imageNamed:@"chat_animation_white1" ],
+                                      [UIImage imageNamed:@"chat_animation_white2" ],
+                                      [UIImage imageNamed:@"chat_animation_white3" ],nil];
         self.voice.animationDuration = 1;
         self.voice.animationRepeatCount = 0;
         self.indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
