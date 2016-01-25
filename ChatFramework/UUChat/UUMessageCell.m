@@ -220,7 +220,7 @@
         case UUMessageTypeVoice:
         {
             self.btnContent.voiceBackView.hidden = NO;
-            self.btnContent.second.text = [NSString stringWithFormat:LocalString(@"VOICE_SEC", @"%@'s Voice"),message.strVoiceTime];
+            self.btnContent.second.text = [NSString stringWithFormat:NSLocalizedStringFromTable(@"VOICE_SEC",@"ChatFrameworkLocalized",nil),message.strVoiceTime];
             songData = message.voice;
 //            voiceURL = [NSString stringWithFormat:@"%@%@",RESOURCE_URL_HOST,message.strVoice];
         }
