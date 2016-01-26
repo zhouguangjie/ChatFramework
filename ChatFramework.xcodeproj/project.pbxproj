@@ -604,6 +604,7 @@
 		E7D751DD1C560A47002E3D40 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Guangjie Zhou (2BW6TGDJAV)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -611,6 +612,7 @@
 		E7D751DE1C560A47002E3D40 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Guangjie Zhou (2BW6TGDJAV)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
