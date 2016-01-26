@@ -84,6 +84,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E71718561C573D3B0097AF64 /* ChatFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChatFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E737F4E21C02F9E0008B3882 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		E737F4E31C02F9E0008B3882 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		E737F4E41C02F9E0008B3882 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -147,7 +148,6 @@
 		E7C5568A1BC74CFB00CB388E /* UUProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUProgressHUD.m; sourceTree = "<group>"; };
 		E7D751D71C560648002E3D40 /* ChatAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ChatAssets.xcassets; sourceTree = "<group>"; };
 		E7D751E11C560F7C002E3D40 /* ChatFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ChatFramework.framework; sourceTree = "<group>"; };
-		E7D751E91C56110E002E3D40 /* ChatFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ChatFramework.framework; path = "/Users/alexchow/GitHub/ChatFramework/build/Release-iphoneos/ChatFramework.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +194,7 @@
 				E7D751E01C560F7C002E3D40 /* Products */,
 				E7C5562E1BC74CD500CB388E /* ChatFramework */,
 				E7D751AC1C55FC39002E3D40 /* ChatAssets */,
+				E71718561C573D3B0097AF64 /* ChatFramework.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -355,7 +356,7 @@
 			);
 			name = ChatFramework;
 			productName = ChatFramework;
-			productReference = E7D751E91C56110E002E3D40 /* ChatFramework.framework */;
+			productReference = E71718561C573D3B0097AF64 /* ChatFramework.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
