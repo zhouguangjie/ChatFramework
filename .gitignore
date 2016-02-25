@@ -17,6 +17,7 @@ DerivedData
 *.ipa
 *.xcuserstate
 *.DS_Store
+Products/
 #Bahamut secret config
 Bahamut/BahamutConfig.json
 
